@@ -1,24 +1,62 @@
-# Project Title
+# Fintech Freelancer Marketplace
 
-Just after the title, introduce your project by describing attractively what the project is about and what is the main problem that inspires you to create this project or what is the main contribution for the potential user of your project.
+This project builds a proof-of-concept marketplace that lists fintech freelancers and allows the hiring party to pay the freelance in Ether within the marketplace.  
+
+<br>
 
 ## Technologies
 
-Describe the technologies required to use your project such as programming languages, libraries, frameworks, and operating systems. Be sure to include the specific versions of any critical dependencies that you have used in the stable version of your project.
+This project leverages python 3.7 with the following packages:  
+
+* [bip44](https://pypi.org/project/bip44/) - For python implementation of Bitcoin Improvement Proposal 44
+* [dotenv](https://pypi.org/project/python-dotenv/) - For setting environment variables
+* [Streamlit](https://streamlit.io/) - For rapidly building frontends for data-driven apps
+* [Web3.py](https://web3py.readthedocs.io/en/stable/index.html) - For interacting with Ethereum using python  
+
+<br>
 
 ## Installation Guide
 
-In this section, you should include detailed installation notes containing code blocks and screenshots.
+Before running the application first install the following dependencies.
+
+```python
+ pip install bip44
+ pip install python-dotenv
+ pip install streamlit
+ pip install web3==5.17
+```
+
+[Ganache](https://trufflesuite.com/ganache/) is used for testing and confirming transaction. If using Ganache for testing, paste the mnemonic in the `.env` file in the same directory as `fintech_finder.py`. Within `.env` set the mnemonic as the variable `MNEMONIC`.
+
+<br>
 
 ## Usage
 
-This section should include screenshots, code blocks, or animations explaining how to use your project.
+To use the app clone the repository and run the following command in the directory where `fintech_finder.py` is located:
+
+```python
+ streamlit run fintech_finder.py
+```
+
+To hire a fintech freelancer select the person being hired from the __Select a Person__ dropdown. Enter the number hours for which the person is being hired. Click the __Send Transaction__ button to pay the person in Ether. If the transaction is successful the transactions hash will appear below __Validated Transaction Hash__.
+
+![Marketplace UI](Images/marketplace_ui.png)
+
+If using Ganache, the change in the balance of Ether can be viewed from the __ACCOUNTS__ tab. Look for the account with the address that matches the one displayed under __Client Account Address and Ethernet Balance in Ether__ in the marketplace app. The details of the transaction can be viewed selecting the __TRANSACTION__ tab in Ganache and clicking the transaction.
+
+__Account Summary__
+![Account Summary](Images/account_summary.png)  
+
+__Transaction Summary__
+![Transaction Summary](Images/transaction_summary.png)
+
+<br>
 
 ## Contributors
 
-In this section, list all the people who contribute to this project. You might want recruiters or potential collaborators to reach you, so include your contact email and, optionally, your LinkedIn or Twitter profile.  
+Josh Mischung: [josh@knoasis.io](josh@knoasis.io), [LinkedIn](https://www.linkedin.com/in/joshmischung/)
 
-- Josh Mischung: [josh@knoasis.io](josh@knoasis.io), [LinkedIn](https://www.linkedin.com/in/joshmischung/)
+<br>
 
 ## License
 
